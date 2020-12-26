@@ -25,9 +25,8 @@ while True:
     else:
       
         score = score-1
-        openwrite_close(score)
+        openwrite_close(score)      
 
-    #print(score)        
 
     if score > 250:
         print("You Win! Moves:",moves, "last score:", score)
