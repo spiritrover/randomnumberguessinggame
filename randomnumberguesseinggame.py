@@ -1,10 +1,5 @@
+
 import random
-
-score = 0
-
-moves = 0
-
-guess = input("please enter your guess here:\n")
 
 def openwrite_close(score):
     x = str(score)
@@ -13,29 +8,35 @@ def openwrite_close(score):
     f.close() 
 
 
-while True:
+def game():
+    guess = input("please enter your guess here:\n")
+    score = 0
+    moves = 0
+    while True:
 
-    randomnumber = random.randint(1, 6)   
+        randomnumber = random.randint(1, 10)   
 
-    if int(guess) == randomnumber:
+        if int(guess) == randomnumber:
 
-        score = score+6
-        openwrite_close(score)
+            score = score+10
+            openwrite_close(score)
 
-    else:
+        else:
       
-        score = score-1
-        openwrite_close(score)      
+            score = score-1
+            openwrite_close(score)      
 
 
-    if score > 250:
-        print("You Win! Moves:",moves, "last score:", score)
-        exit()
+        if score > 250:
+            print("You Win! Moves:",moves, "last score:", score)
+            return()
 
-    moves = moves +1
+        moves = moves +1
 
-    if moves > 1000:
-        print("You Lose :(, moves:",moves, "last score", score)
-        exit()
+        if moves > 1000:
+            print("You Lose :(, moves:",moves, "last score", score)
+            return()
 
 
+while True:
+    game()
