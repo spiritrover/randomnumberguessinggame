@@ -1,5 +1,5 @@
 import random
-credits = 20
+credits = 225
 
 def openwrite_close(score):
     x = str(score)
@@ -9,7 +9,7 @@ def openwrite_close(score):
 
 
 def game():
-    guess = input("please enter your guess here:\n")
+    guess = int(input("please enter your guess here:\n"))
     score = 0
     moves = 0
     
@@ -33,7 +33,7 @@ def game():
 
         if score > 250:
             print("You Win! Moves:",moves, "last score:", score)
-            credits = credits + 1
+            credits = credits + 5
             return()
 
         moves = moves +1
@@ -50,3 +50,5 @@ while True:
     else:
         print("remaining credit:",int(credits)) 
         exit()
+        
+               
