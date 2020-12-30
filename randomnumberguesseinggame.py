@@ -1,5 +1,10 @@
 import random
+
+chanceofsucsess = 3
 credits = 225
+addingcredits = 1
+
+credits = credits + addingcredits
 
 def openwrite_close(score):
     x = str(score)
@@ -7,16 +12,33 @@ def openwrite_close(score):
     f.write(x)
     f.close() 
 
+def askforpersonalrisk():
+    global chanceofsucsess
+    riskfactor = input("please state risk factor:low, mid, high:\n")
+    if riskfactor == "low":
+        addingcredits = 1
+        chanceofsucsess = int(3)
+    if riskfactor == "mid":
+        addingcredits = 5
+        chanceofsucsess = int(6)
+    if riskfactor == "high":
+        addingcredits = 20    
+        chanceofsucsess = int(10)
+    return(chanceofsucsess)
+         
 
 def game():
-    guess = int(input("please enter your guess here:\n"))
     score = 0
     moves = 0
+    global chanceofsucsess 
+    print("please enter your guess here between 1 and ", chanceofsucsess)
+    guess = int(input())
+    
     
     while True:
 
         global credits
-        randomnumber = random.randint(1, 10)   
+        randomnumber = random.randint(1, chanceofsucsess)   
 
         if int(guess) == randomnumber:
 
@@ -46,9 +68,9 @@ def game():
 while True:
     if credits >= 1:
         print("remaining credit:", int(credits))
+        askforpersonalrisk()
         game()
     else:
         print("remaining credit:",int(credits)) 
         exit()
         
-               
