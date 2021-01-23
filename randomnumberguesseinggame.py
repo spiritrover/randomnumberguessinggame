@@ -14,6 +14,7 @@ def openwrite_close(score):
 
 def askforpersonalrisk():
     global chanceofsucsess
+    global addingcredits
     riskfactor = input("please state risk factor:low, mid, high:\n")
     if riskfactor == "low":
         addingcredits = 1
@@ -74,3 +75,4 @@ while True:
         print("remaining credit:",int(credits)) 
         exit()
         
+#LOCAL ANARCHIST TEAMS UP WITH HOMELESS TELETUBBY TO DESTROY GOVERNMENT - Technoblade
